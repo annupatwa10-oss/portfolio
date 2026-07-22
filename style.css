@@ -23,9 +23,8 @@ body {
     background: #0F172A;
     color: #F8FAFC;
 }
-
-/* ===========================
-   NAVBAR
+ /* ===========================
+   1. DESKTOP NAVBAR (Default PC View)
 =========================== */
 .navbar {
     display: flex;
@@ -40,8 +39,48 @@ body {
     z-index: 1000;
     backdrop-filter: blur(8px);
     border-bottom: 1px solid #1E293B;
+    box-sizing: border-box; /* Ensures padding doesn't cause horizontal overflow */
 }
 
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: #F8FAFC;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #0EA5E9; /* Teal accent on hover */
+}
+
+/* ===========================
+   MOBILE RESPONSIVE (Screens under 768px)
+=========================== */
+@media screen and (max-width: 768px) {
+    .navbar {
+        padding: 10px 4%; /* Compact header spacing */
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: row;    /* Horizontal array me hi rakhega */
+        flex-wrap: wrap;         /* Agar jyada text ho toh auto adjust ho jaye */
+        justify-content: center;
+        gap: 8px 12px;           /* Text ke beech ka space kafi kam kar diya */
+        padding: 5px 0;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem;      /* Text size chhota kar diya */
+        font-weight: 500;
+    }
+}
 .logo {
     font-size: 26px;
     font-weight: 700;
